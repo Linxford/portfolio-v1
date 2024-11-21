@@ -10,6 +10,7 @@ import ReviewsManager from './components/admin/ReviewsManager';
 import ContentManager from './components/admin/ContentManager';
 import { useThemeStore } from './store/themeStore';
 import { useAuthStore } from './store/authStore';
+import { APP_NAME, Developer, Developer_Contact, formatDate } from './utils/helpers';
 
 function App() {
   const { theme } = useThemeStore();
@@ -37,3 +38,8 @@ function App() {
 }
 
 export default App;
+
+console.log(formatDate(new Date()));
+console.log(`Welcome to ${APP_NAME}`);
+console.log(`Developed by 👉 ${Developer}`);
+console.log(`Developeer Contact 👉 ${Developer_Contact}`);

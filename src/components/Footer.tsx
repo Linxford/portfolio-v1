@@ -12,10 +12,8 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center text-gray-600 dark:text-gray-400">
         {/* Left Section */}
         <div className="text-sm">
-          <a href="/" className="hover:underline">
-            Linxford Kwabena
-          </a>
-        </div>
+       © {new Date().getFullYear()} Crafted with 🩵 by <a href="/" className="hover:underline">Linxford Kwabena.
+          </a> </div>
 
         {/* Center Section */}
         <div className="flex items-center my-4 md:my-0">
