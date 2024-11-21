@@ -12,7 +12,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center text-gray-600 dark:text-gray-400">
         {/* Left Section */}
         <div className="text-sm">
-       © {new Date().getFullYear()} Crafted with 🩵 by <a href="/" className="hover:underline">Linxford Kwabena.
+       © {new Date().getFullYear()} Crafted with 🩵 by <a href="${GitHub}" className="hover:underline">Linxford Kwabena.
           </a> </div>
 
         {/* Center Section */}
@@ -27,22 +27,22 @@ const Footer = () => {
 
         {/* Right Section */}
         <div className="flex space-x-4">
-          <a href="https://linkedin.com/n/linxford" aria-label="LinkedIn" className="hover:opacity-75" target='_blank'>
+          <a href="${LinkedIn}" aria-label="LinkedIn" className="hover:opacity-75" target='_blank'>
             <img src={linkedin} alt="LinkedIn" className="w-5 h-5" />
           </a>
-          <a href="https://github.com/linxford" aria-label="GitHub" className="hover:opacity-75" target='_blank'>
+          <a href="${GitHub}" aria-label="GitHub" className="hover:opacity-75" target='_blank'>
             <img src={githubIcon} alt="GitHub" className="w-5 h-5" />
           </a>
-          <a href="https://wa.me/233542979998" aria-label="WhatsApp" className="hover:opacity-75" target='_blank'>
+          <a href="${WhatsApp}" aria-label="WhatsApp" className="hover:opacity-75" target='_blank'>
             <img src={whatsapp} alt="WhatsApp" className="w-5 h-5" />
           </a>
-          <a href="https://stackoverflow.com/users/12762432/linxford" aria-label="StackOverflow" className="hover:opacity-75" target='_blank'>
+          <a href="${StackOverflow}" aria-label="StackOverflow" className="hover:opacity-75" target='_blank'>
             <img src={stack} alt="StackOverflow" className="w-5 h-5" />
           </a>
-          <a href="https://instagram.com/linxford" aria-label="Instagram" className="hover:opacity-75" target='_blank'>
+          <a href="${Instagram}" aria-label="Instagram" className="hover:opacity-75" target='_blank'>
             <img src={instagramIcon} alt="Instagram" className="w-5 h-5" />
           </a>
-          <a href="https://t.me/Linxford" aria-label="Telegram" className="hover:opacity-75" target='_blank'>
+          <a href="${Telegram}" aria-label="Telegram" className="hover:opacity-75" target='_blank'>
             <img src={telegram} alt="Instagram" className="w-5 h-5" />
           </a>
         </div>

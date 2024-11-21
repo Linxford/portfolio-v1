@@ -6,6 +6,19 @@ export const Club_Email = "royalsoccerclub15@gmail.com";
 export const Developer = "Linxford Kwabena";
 export const Developer_Contact = "0249771777 or 0542979998";
 export const PayStack_Key = "pk_test_5b0a5416773b64583fa0540876c36c7dcaac69b7";
+// Social Hnadles
+export const Facebook = "https://m.me/linxford";
+export const LinkedIn = "https://linkedin.com/n/linxford";
+export const Twitter = "https://x.com/linxford";
+export const Telegram = "https://t.me/linxford";
+export const Github = "https://github.com/linxford";
+export const WhatsApp = "https://wa.me/233542979998";
+export const StackOverflow = "https://stackoverflow.com/users/12762432/linxford";
+export const Instagram = "https://instagram.com/linxford";
+export const YouTube = "https://youtube.com/@linxford";
+export const TikTok = "https://www.tiktok.com/@linxford";
+export const Discord = "https://discord.com/invite/linxford";
+
 
 
 // Format a date to 'YYYY-MM-DD'
