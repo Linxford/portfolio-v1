@@ -9,6 +9,7 @@ import Contact from '../components/Contact';
 import ParticlesBackground from '../components/ParticlesBackground';
 import { useGithubStore } from '../store/githubStore';
 import Footer from '../components/Footer';
+import TechStack from '../components/TechStack';
 
 export default function Portfolio() {
   const fetchGithubData = useGithubStore((state) => state.fetchGithubData);
@@ -23,6 +24,7 @@ export default function Portfolio() {
       <Navbar />
       <Hero />
       <Services />
+      <TechStack />
       <Projects />
       <Reviews />
       <Skills />

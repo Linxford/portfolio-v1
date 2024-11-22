@@ -22,7 +22,7 @@ export default function Hero() {
             <div className="space-y-4">
               <h1 className="font-display text-4xl md:text-6xl font-bold leading-tight">
                 <span className="bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent animate-gradient">
-                  {content.title || 'Flutter Developer'}
+                  {content.title || 'Full-Stack Developer and AI Solution Architect'}
                 </span>
                 <div className="h-20">
                   <TypeAnimation
