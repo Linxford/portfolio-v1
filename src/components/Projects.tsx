@@ -1,12 +1,34 @@
-import React from 'react';
-import { ExternalLink, Github, Star, GitFork } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { Github, Star } from 'lucide-react';
 import { useGithubStore } from '../store/githubStore';
 
+type Repo = {
+  id: string;
+  name: string;
+  description: string;
+  html_url: string;
+  stargazers_count: number;
+  cover_url?: string;
+  topics?: string[];
+};
+
 export default function Projects() {
-  const { repos, loading } = useGithubStore();
+  const { repos, loading, fetchGithubData } = useGithubStore();
+  const [filteredRepos, setFilteredRepos] = useState<Repo[]>([]);
+
+  useEffect(() => {
+    // Fetch repositories
+    fetchGithubData();
+  }, [fetchGithubData]);
+
+  useEffect(() => {
+    // Filter repositories with `html_url` or `project` tag
+    const filtered = repos.filter((repo: Repo) => repo.html_url || (repo.topics && repo.topics.includes('project')));
+    setFilteredRepos(filtered);
+  }, [repos]);
 
   // Limit the number of repositories to show
-  const featuredRepos = repos.slice(0, 6);
+  const featuredRepos = filteredRepos.slice(0, 6);
 
   return (
     <section id="projects" className="py-20 bg-white dark:bg-gray-900 relative">
@@ -56,70 +78,24 @@ export default function Projects() {
                     <h3 className="text-xl font-semibold text-white mb-2">
                       {repo.name}
                     </h3>
-                    <div className="flex items-center gap-4 text-white/80">
-                      <div className="flex items-center gap-1">
-                        <Star size={16} />
-                        <span>{repo.stargazers_count}</span>
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <GitFork size={16} />
-                        <span>{repo.forks_count}</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="absolute bottom-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                    {repo.homepage && (
-                      <a
-                        href={repo.homepage}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-2 bg-white rounded-full hover:bg-blue-500 hover:text-white transition-colors"
-                      >
-                        <ExternalLink size={20} />
-                      </a>
-                    )}
-                    <a
-                      href={repo.html_url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2 bg-white rounded-full hover:bg-blue-500 hover:text-white transition-colors"
-                    >
-                      <Github size={20} />
-                    </a>
                   </div>
                 </div>
-
-                {/* Repository Details */}
                 <div className="p-6">
-                  <p className="text-gray-600 dark:text-gray-400 mb-4 line-clamp-2">
-                    {repo.description || 'No description available'}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {repo.topics?.map((topic) => (
-                      <span
-                        key={topic}
-                        className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-400 rounded-full text-sm"
-                      >
-                        {topic}
-                      </span>
-                    ))}
+                  <p className="text-gray-600 dark:text-gray-400">{repo.description}</p>
+                  <div className="mt-4 flex items-center justify-between">
+                    <a href={repo.html_url} target="_blank" rel="noopener noreferrer" className="flex items-center text-blue-500 hover:text-blue-600">
+                      <Github className="mr-2" />
+                      View on GitHub
+                    </a>
+                    <div className="flex items-center">
+                      <Star className="mr-2" />
+                      {repo.stargazers_count}
+                    </div>
                   </div>
                 </div>
               </div>
             ))
           )}
-        </div>
-
-        {/* Button to View All Repositories */}
-        <div className="mt-12 text-center">
-          <a
-            href="https://github.com/linxford"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block px-6 py-3 bg-blue-500 text-white rounded-full hover:bg-blue-600 transition-all duration-300 transform hover:scale-105"
-          >
-            View All Repositories
-          </a>
         </div>
       </div>
     </section>
