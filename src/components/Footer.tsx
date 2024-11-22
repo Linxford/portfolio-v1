@@ -6,13 +6,15 @@ import telegram from '../assets/telegram.svg'
 import instagramIcon from '../assets/instagram.svg'
 import stack from '../assets/stack.png'
 
+import { LinkedIn, WhatsApp, StackOverflow, Telegram, Github, Instagram } from '../utils/helpers'
+
 const Footer = () => {
   return (
     <footer className="bg-gray-50 dark:bg-gray-800 py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center text-gray-600 dark:text-gray-400">
         {/* Left Section */}
         <div className="text-sm">
-       © {new Date().getFullYear()} Crafted with 🩵 by <a href="${GitHub}" className="hover:underline">Linxford Kwabena.
+       © {new Date().getFullYear()} Crafted with 🩵 by <a href={Github} className="hover:underline">Linxford Kwabena.
           </a> </div>
 
         {/* Center Section */}
@@ -27,22 +29,22 @@ const Footer = () => {
 
         {/* Right Section */}
         <div className="flex space-x-4">
-          <a href="${LinkedIn}" aria-label="LinkedIn" className="hover:opacity-75" target='_blank'>
+          <a href={LinkedIn} aria-label="LinkedIn" className="hover:opacity-75" target='_blank'>
             <img src={linkedin} alt="LinkedIn" className="w-5 h-5" />
           </a>
-          <a href="${GitHub}" aria-label="GitHub" className="hover:opacity-75" target='_blank'>
+          <a href={Github} aria-label="GitHub" className="hover:opacity-75" target='_blank'>
             <img src={githubIcon} alt="GitHub" className="w-5 h-5" />
           </a>
-          <a href="${WhatsApp}" aria-label="WhatsApp" className="hover:opacity-75" target='_blank'>
+          <a href={WhatsApp} aria-label="WhatsApp" className="hover:opacity-75" target='_blank'>
             <img src={whatsapp} alt="WhatsApp" className="w-5 h-5" />
           </a>
-          <a href="${StackOverflow}" aria-label="StackOverflow" className="hover:opacity-75" target='_blank'>
+          <a href={StackOverflow} aria-label="StackOverflow" className="hover:opacity-75" target='_blank'>
             <img src={stack} alt="StackOverflow" className="w-5 h-5" />
           </a>
-          <a href="${Instagram}" aria-label="Instagram" className="hover:opacity-75" target='_blank'>
+          <a href={Instagram} aria-label="Instagram" className="hover:opacity-75" target='_blank'>
             <img src={instagramIcon} alt="Instagram" className="w-5 h-5" />
           </a>
-          <a href="${Telegram}" aria-label="Telegram" className="hover:opacity-75" target='_blank'>
+          <a href={Telegram} aria-label="Telegram" className="hover:opacity-75" target='_blank'>
             <img src={telegram} alt="Instagram" className="w-5 h-5" />
           </a>
         </div>
