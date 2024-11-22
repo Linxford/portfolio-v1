@@ -23,7 +23,7 @@ export default function Projects() {
 
   useEffect(() => {
     // Filter repositories with `html_url` or `project` tag
-    const filtered = repos.filter((repo: Repo) => repo.html_url || (repo.topics && repo.topics.includes('project')));
+    const filtered = repos.filter((repo: Repo) => (repo.topics && repo.topics.includes('project')));
     setFilteredRepos(filtered);
   }, [repos]);
 
