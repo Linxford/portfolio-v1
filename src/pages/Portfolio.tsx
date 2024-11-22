@@ -2,14 +2,14 @@ import React, { useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import Services from '../components/Services';
+import TechStack from '../components/TechStack';
 import Projects from '../components/Projects';
 import Reviews from '../components/Reviews';
 import Skills from '../components/Skills';
 import Contact from '../components/Contact';
 import ParticlesBackground from '../components/ParticlesBackground';
-import { useGithubStore } from '../store/githubStore';
 import Footer from '../components/Footer';
-import TechStack from '../components/TechStack';
+import { useGithubStore } from '../store/githubStore';
 
 export default function Portfolio() {
   const fetchGithubData = useGithubStore((state) => state.fetchGithubData);
@@ -20,7 +20,10 @@ export default function Portfolio() {
 
   return (
     <div className="relative bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors">
+      {/* Background Effects */}
       <ParticlesBackground />
+
+      {/* Page Sections */}
       <Navbar />
       <Hero />
       <Services />
@@ -29,15 +32,11 @@ export default function Portfolio() {
       <Reviews />
       <Skills />
       <Contact />
-    <Footer/>
-      {/* <footer className="bg-gray-50 dark:bg-gray-800 py-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-600 dark:text-gray-400">
-          <p>© {new Date().getFullYear()} Linxford Kwabena. All rights reserved.</p>
-        </div>
-      </footer> */}
+      <Footer />
     </div>
   );
 }
+
 
 
 // import { Container } from '../components/styles'
