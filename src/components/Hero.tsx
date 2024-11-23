@@ -73,7 +73,7 @@ export default function Hero() {
 
             {/* Stats Section */}
             <div className="flex flex-wrap gap-8">
-              {stats.map((stat, index) => {
+              {stats.map((stat: { label: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; value: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; }, index: React.Key | null | undefined) => {
                 const Icon = index === 0 ? Smartphone : index === 1 ? Code2 : Sparkles;
                 return (
                   <div

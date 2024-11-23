@@ -19,6 +19,9 @@ export const YouTube = "https://youtube.com/@linxford";
 export const TikTok = "https://www.tiktok.com/@linxford";
 export const Discord = "https://discord.com/invite/linxford";
 
+//My Profile Pic
+export const MyPic = "src/assets/linxford_prof.png";
+
 // Google Analytics
 export const GOOGLE_ANALYTICS_ID = "G-2VJRC57JVY";
 

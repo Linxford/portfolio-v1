@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import Services from '../components/Services';
@@ -10,6 +10,7 @@ import Contact from '../components/Contact';
 import ParticlesBackground from '../components/ParticlesBackground';
 import Footer from '../components/Footer';
 import { useGithubStore } from '../store/githubStore';
+import TeachingPortfolio from '../components/TeachingPortfolio';
 
 export default function Portfolio() {
   const fetchGithubData = useGithubStore((state) => state.fetchGithubData);
@@ -25,6 +26,7 @@ export default function Portfolio() {
 
       {/* Page Sections */}
       <Navbar />
+      <TeachingPortfolio />
       <Hero />
       <Services />
       <TechStack />
