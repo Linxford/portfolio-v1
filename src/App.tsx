@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Portfolio from './pages/Portfolio';
 import AdminLayout from './components/admin/AdminLayout';
 import LoginPage from './components/admin/LoginPage';
@@ -11,10 +11,23 @@ import ContentManager from './components/admin/ContentManager';
 import { useThemeStore } from './store/themeStore';
 import { useAuthStore } from './store/authStore';
 import { APP_NAME, Developer, Developer_Contact, formatDate } from './utils/helpers';
+import { initGA, logPageView } from './utils/analytics';
 
 function App() {
   const { theme } = useThemeStore();
   const checkAuth = useAuthStore((state) => state.checkAuth);
+  const location = useLocation();
+
+  // Initialize GA
+  useEffect(() => {
+    initGA();
+    logPageView(location.pathname); // Log the initial page load
+  }, []);
+
+  // Log page views on route changes
+  useEffect(() => {
+    logPageView(location.pathname);
+  }, [location]);
 
   useEffect(() => {
     checkAuth();
@@ -42,4 +55,4 @@ export default App;
 console.log(formatDate(new Date()));
 console.log(`Welcome to ${APP_NAME}`);
 console.log(`Developed by 👉 ${Developer}`);
-console.log(`Developeer Contact 👉 ${Developer_Contact}`);
+console.log(`Developer Contact 👉 ${Developer_Contact}`);

@@ -19,6 +19,8 @@ export const YouTube = "https://youtube.com/@linxford";
 export const TikTok = "https://www.tiktok.com/@linxford";
 export const Discord = "https://discord.com/invite/linxford";
 
+// Google Analytics
+export const GOOGLE_ANALYTICS_ID = "G-2VJRC57JVY";
 
 
 // Format a date to 'YYYY-MM-DD'
