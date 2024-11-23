@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Mail, Linkedin, BookOpen, Award, Users, MessageSquare, Camera, PlayCircle, Star, Calendar, Clock, ArrowUp, Lightbulb, Book, Trophy, ChevronLeft, ChevronRight, Loader, Play, Video } from 'lucide-react';
+import { Menu, X, Mail, Linkedin, BookOpen, Award, Users, MessageSquare, Camera, PlayCircle, Star, Calendar, Clock, ArrowUp, Lightbulb, Book, Trophy, ChevronLeft, ChevronRight, Play, Video } from 'lucide-react';
 import { videoData } from './videoData';
 import VideoModal from './VideoModal';
+import profileImage from '/src/assets/images/linxford_prof.png';
 
 const TeachingPortfolio = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -133,12 +134,12 @@ const TeachingPortfolio = () => {
     // Update your images array to include titles and descriptions
     const images: ImageData[] = [
         {
-            src: "src/assets/linxford_prof.png",
+            src: profileImage,
             title: "Interactive Learning Session",
             description: "Students engaging in a hands-on experiment during our science class."
         },
         {
-            src: "src/assets/linxford_prof.png",
+            src: profileImage,
             title: "Group Discussion",
             description: "Facilitating a group discussion on current events in our social studies class."
         },
@@ -317,7 +318,7 @@ const TeachingPortfolio = () => {
                             <div className="md:w-1/2 flex justify-center">
                                 <div className="relative">
                                     <img
-                                        src="src/assets/linxford_prof.png"
+                                        src={profileImage}
                                         alt="Teacher Profile"
                                         className="rounded-full w-64 h-64 object-cover border-4 border-white shadow-lg transform hover:scale-105 transition-transform duration-300"
                                     />
