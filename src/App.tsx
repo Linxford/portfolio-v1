@@ -38,17 +38,17 @@ function App() {
   return (
     <div className={theme === 'dark' ? 'dark' : ''}>
       <Routes>
-        <Route path="/" element={<Portfolio />} />
-        <Route path="/admin/login" element={<LoginPage />} />
-        <Route path="/admin" element={<AdminLayout />}>
-          <Route index element={<Dashboard />} />
-          <Route path="projects" element={<ProjectsManager />} />
-          <Route path="services" element={<ServicesManager />} />
-          <Route path="reviews" element={<ReviewsManager />} />
-          <Route path="content" element={<ContentManager />} />
-</Route>
-         <Route path="teaching" element={<TeachingPortfolio />} />
-      </Routes>
+  <Route path="/" element={<Portfolio />} />
+  <Route path="/teaching" element={<TeachingPortfolio />} /> {/* Move this before the admin routes */}
+  <Route path="/admin/login" element={<LoginPage />} />
+  <Route path="/admin" element={<AdminLayout />}>
+    <Route index element={<Dashboard />} />
+    <Route path="projects" element={<ProjectsManager />} />
+    <Route path="services" element={<ServicesManager />} />
+    <Route path="reviews" element={<ReviewsManager />} />
+    <Route path="content" element={<ContentManager />} />
+  </Route>
+</Routes>
     </div>
   );
 }
