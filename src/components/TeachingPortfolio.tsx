@@ -143,9 +143,6 @@ const TeachingPortfolio = () => {
         // Add more images with titles and descriptions
     ];
 
-
-
-
     // Helper function for image navigation
     const navigateImage = (direction: 'next' | 'prev') => {
         if (selectedImageIndex === null) return;
