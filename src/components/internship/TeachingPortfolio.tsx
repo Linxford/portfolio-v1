@@ -386,7 +386,7 @@ const TeachingPortfolio = () => {
                 </section>
 
                 {/* Video Highlights Section */}
-                <section className="py-16 px-4 sm:px-6 lg:px-8">
+                <section id='video-highlights' className="py-16 px-4 sm:px-6 lg:px-8">
                     {/* <div className="container mx-auto px-4"> */}
                     <div className="text-center mb-12">
                         <Video className={`w-12 h-12 mx-auto mb-4 ${themeColors[colorTheme].text}`} />
