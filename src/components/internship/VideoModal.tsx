@@ -1,8 +1,6 @@
-// src/components/VideoModal.tsx
-
 import React, { useState, useRef, useEffect } from 'react';
 import { X, Loader, Play } from 'lucide-react';
-import { videoData,  } from './videoData';
+import { videoData, } from './videoData';
 
 interface VideoModalProps {
     videoId: number;
@@ -17,33 +15,45 @@ const VideoModal: React.FC<VideoModalProps> = ({ videoId, onClose }) => {
 
     const video = videoData.find(v => v.id === videoId);
 
-    if (!video) return null;
-
     useEffect(() => {
-        if (videoRef.current) {
-            videoRef.current.addEventListener('loadeddata', generateThumbnail);
-            return () => {
-                if (videoRef.current) {
-                    videoRef.current.removeEventListener('loadeddata', generateThumbnail);
-                }
-            };
-        }
-    }, []);
+        if (!video) return;
 
-    const generateThumbnail = () => {
-        if (videoRef.current) {
+        const videoElement = document.createElement('video');
+        videoElement.src = video.videoUrl;
+        videoElement.crossOrigin = 'anonymous'; // Add this line if your video is hosted on a different domain
+
+        videoElement.addEventListener('loadeddata', () => {
+            generateThumbnail(videoElement);
+        });
+
+        videoElement.addEventListener('error', (e) => {
+            console.error('Error loading video:', e);
+            setIsVideoLoading(false);
+        });
+
+        return () => {
+            videoElement.remove();
+        };
+    }, [video]);
+
+    const generateThumbnail = (videoElement: HTMLVideoElement) => {
+        videoElement.currentTime = 1; // Set to 1 second to avoid black frames at the start
+
+        videoElement.addEventListener('seeked', () => {
             const canvas = document.createElement('canvas');
-            canvas.width = videoRef.current.videoWidth;
-            canvas.height = videoRef.current.videoHeight;
-            canvas.getContext('2d')?.drawImage(videoRef.current, 0, 0, canvas.width, canvas.height);
+            canvas.width = videoElement.videoWidth;
+            canvas.height = videoElement.videoHeight;
+            canvas.getContext('2d')?.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
             setThumbnail(canvas.toDataURL());
             setIsVideoLoading(false);
-        }
+        }, { once: true });
     };
 
     const handlePlayClick = () => {
         setIsPlaying(true);
     };
+
+    if (!video) return null;
 
     return (
         <div
@@ -73,12 +83,16 @@ const VideoModal: React.FC<VideoModalProps> = ({ videoId, onClose }) => {
                             className="w-full h-full relative cursor-pointer group"
                             onClick={handlePlayClick}
                         >
-                            {thumbnail && (
+                            {thumbnail ? (
                                 <img
                                     src={thumbnail}
                                     alt={`Video thumbnail ${video.title}`}
                                     className="w-full h-full object-cover"
                                 />
+                            ) : (
+                                <div className="w-full h-full bg-gray-800 flex items-center justify-center">
+                                    <Loader className="w-8 h-8 text-white animate-spin" />
+                                </div>
                             )}
                             <div className="absolute inset-0 flex items-center justify-center">
                                 <Play className="w-16 h-16 text-white opacity-70 group-hover:opacity-100 transition-opacity" />

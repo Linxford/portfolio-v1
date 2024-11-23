@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Mail, Linkedin, BookOpen, Award, Users, MessageSquare, Camera, PlayCircle, Star, Calendar, Clock, ArrowUp, Lightbulb, Book, Trophy, ChevronLeft, ChevronRight, Play, Video } from 'lucide-react';
+import { Menu, X, Mail, Linkedin, BookOpen, Award, Users, MessageSquare, Camera, PlayCircle, Star, Calendar, Clock, ArrowUp, Lightbulb, Book, Trophy, ChevronLeft, ChevronRight, Video } from 'lucide-react';
 import { videoData } from './videoData';
 import VideoModal from './VideoModal';
 import profileImage from '/src/assets/images/linxford_prof.png';
+import VideoThumbnail from './VideoThumbnail';
 
 const TeachingPortfolio = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -403,14 +404,13 @@ const TeachingPortfolio = () => {
                             {videoData.map((video) => (
                                 <div
                                     key={video.id}
-                                    className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden cursor-pointer transform hover:-translate-y-1 transition-all duration-300"
-                                    onClick={() => setSelectedVideoId(video.id)}
+                                    className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden"
                                 >
-                                    <div className="aspect-video bg-gray-200 dark:bg-gray-700 relative group">
-                                        <div className="absolute inset-0 flex items-center justify-center">
-                                            <Play className="w-16 h-16 text-white opacity-70 group-hover:opacity-100 transition-opacity" />
-                                        </div>
-                                    </div>
+                                    <VideoThumbnail
+                                        videoUrl={video.videoUrl}
+                                        title={video.title}
+                                        onClick={() => setSelectedVideoId(video.id)}
+                                    />
                                     <div className="p-6">
                                         <h3 className="text-xl font-semibold mb-2 text-gray-800 dark:text-white">
                                             {video.title}
