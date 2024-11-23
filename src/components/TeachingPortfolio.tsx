@@ -1,11 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown, Mail, Linkedin, Github, ExternalLink, BookOpen, Award, Users, Target, MessageSquare, Camera, PlayCircle, Star, Calendar, Clock, ArrowUp, Lightbulb, Book, UserCheck, Trophy } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Menu, X, Mail, Linkedin, BookOpen, Award, Users, MessageSquare, Camera, PlayCircle, Star, Calendar, Clock, ArrowUp, Lightbulb, Book, Trophy, ChevronLeft, ChevronRight, Loader } from 'lucide-react';
 
 const TeachingPortfolio = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('home');
+  const [, setActiveSection] = useState('home');
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [selectedTestimonial, setSelectedTestimonial] = useState(0);
+//   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
+const [selectedVideo, setSelectedVideo] = useState<number | null>(null);
+  const [imageIndex, setImageIndex] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
 
   // Color theme state
   type ThemeOption = 'emerald' | 'blue' | 'purple' | 'rose';
@@ -119,12 +124,196 @@ const themeColors: ThemeColors = {
     { id: 'testimonials', label: 'Testimonials', icon: MessageSquare },
     { id: 'contact', label: 'Contact', icon: Mail },
   ];
-  const images = [
-    'src/assets/linxford_prof.png',
-    'src/assets/linxford_prof.png',
-    'src/assets/linxford_prof.png',
-    'src/assets/linxford_prof.png',
+
+  // Define an interface for your image data
+interface ImageData {
+    src: string;
+    title: string;
+    description: string;
+  }
+
+  // Update your images array to include titles and descriptions
+  const images: ImageData[] = [
+    {
+      src: "src/assets/linxford_prof.png",
+      title: "Interactive Learning Session",
+      description: "Students engaging in a hands-on experiment during our science class."
+    },
+    {
+      src: "src/assets/linxford_prof.png",
+      title: "Group Discussion",
+      description: "Facilitating a group discussion on current events in our social studies class."
+    },
+    // Add more images with titles and descriptions
   ];
+
+
+
+
+  // Helper function for image navigation
+  const navigateImage = (direction: 'next' | 'prev') => {
+    if (selectedImageIndex === null) return;
+    const newIndex = direction === 'next'
+      ? (selectedImageIndex + 1) % images.length
+      : (selectedImageIndex - 1 + images.length) % images.length;
+    setSelectedImageIndex(newIndex);
+  };
+
+  // Modal components with enhanced features
+interface ImageModalProps {
+  image: string | null;
+  onClose: () => void;
+  title: string;
+  description: string;
+}
+
+const ImageModal: React.FC<ImageModalProps> = ({ image, onClose, title, description }) => {
+  if (!image) return null;
+
+  return (
+    <div
+      className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4"
+      onClick={onClose}
+    >
+      <div
+        className="relative bg-white dark:bg-gray-800 rounded-lg max-w-3xl w-full animate-fadeIn"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          onClick={onClose}
+          className="absolute -top-10 right-0 text-white hover:text-gray-300 transition-colors"
+        >
+          <X className="w-8 h-8" />
+        </button>
+
+        <div className="flex flex-col md:flex-row">
+          <div className="md:w-2/3">
+            <img
+              src={image}
+              alt={title}
+              className="w-full h-auto rounded-t-lg md:rounded-l-lg md:rounded-t-none"
+            />
+          </div>
+          <div className="p-6 md:w-1/3">
+            <h2 className="text-2xl font-bold mb-4 text-gray-800 dark:text-white">{title}</h2>
+            <p className="text-gray-600 dark:text-gray-300">{description}</p>
+          </div>
+        </div>
+
+        {/* Navigation buttons */}
+        <button
+          onClick={() => navigateImage('prev')}
+          className="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors"
+        >
+          <ChevronLeft className="w-8 h-8" />
+        </button>
+        <button
+          onClick={() => navigateImage('next')}
+          className="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors"
+        >
+          <ChevronRight className="w-8 h-8" />
+        </button>
+      </div>
+    </div>
+  );
+};
+
+
+
+  interface VideoModalProps {
+    videoId: number | null;
+    onClose: () => void;
+  }
+
+  const VideoModal: React.FC<VideoModalProps> = ({ videoId, onClose }) => {
+    if (videoId === null) return null;
+    const [isVideoLoading, setIsVideoLoading] = useState(true);
+    const [isPlaying, setIsPlaying] = useState(false);
+
+    const handlePlayClick = () => {
+      setIsVideoLoading(true);
+      setTimeout(() => {
+        setIsVideoLoading(false);
+        setIsPlaying(true);
+      }, 1500); // Simulate video loading
+    };
+
+    // ... rest of the component code
+    useEffect(() => {
+      if (isPlaying) {
+        const timer = setTimeout(() => {
+          setIsPlaying(false);
+        }, 5000); // Simulate video playing for 5 seconds
+        return () => clearTimeout(timer);
+      }
+    }, [isPlaying]);
+
+    return (
+      <div
+        className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4"
+        onClick={onClose}
+      >
+        <div
+          className="relative max-w-4xl w-full animate-fadeIn"
+          onClick={e => e.stopPropagation()}
+        >
+          <button
+            onClick={onClose}
+            className="absolute -top-10 right-0 text-white hover:text-gray-300 transition-colors"
+          >
+            <X className="w-8 h-8" />
+          </button>
+
+          <div className="aspect-video bg-gray-900 rounded-lg overflow-hidden shadow-2xl">
+            {isVideoLoading && (
+              <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
+                <Loader className="w-8 h-8 text-white animate-spin" />
+              </div>
+            )}
+
+            {!isPlaying ? (
+              <div
+                className="w-full h-full relative cursor-pointer group"
+                onClick={handlePlayClick}
+              >
+                {/* Video thumbnail */}
+                <div className="absolute inset-0">
+                  <img
+                    src="/api/placeholder/640/360"
+                    alt={`Video thumbnail ${videoId}`}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-30 transition-all duration-300" />
+                </div>
+
+                {/* Play button overlay */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
+                  <PlayCircle className="w-16 h-16 mb-4 transform group-hover:scale-110 transition-transform" />
+                  <h3 className="text-xl font-semibold">Teaching Session {videoId}</h3>
+                  <p className="text-sm text-gray-300">Click to play</p>
+                </div>
+              </div>
+            ) : (
+              <div className="w-full h-full flex items-center justify-center bg-gray-800 text-white">
+                <div className="text-center">
+                  <p className="text-lg mb-2">Video {videoId} is playing</p>
+                  <p className="text-sm text-gray-400">Video player implementation goes here</p>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Video info */}
+          <div className="mt-4 text-white">
+            <h3 className="text-xl font-semibold mb-2">Teaching Session {videoId}</h3>
+            <p className="text-gray-300">
+              Duration: 15:30 • Posted 3 days ago
+            </p>
+          </div>
+        </div>
+      </div>
+    );
+  };
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       {/* Header */}
@@ -260,61 +449,99 @@ const themeColors: ThemeColors = {
           </div>
         </section>
 
-        {/* <div className="container mx-auto px-4"> */}
-          {/* Teaching in Action */}
-          <section id="teaching-action" className="py-16">
-            <div className="container mx-auto px-4">
-              <div className="text-center mb-12">
-                <Camera className={`w-12 h-12 mx-auto mb-4 ${themeColors[colorTheme].text}`} />
-                <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-4">Teaching in Action</h2>
-                <p className="text-gray-600 dark:text-gray-400">Capturing moments of learning and growth</p>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {images.map((image, index) => (
-                  <div key={index} className="group relative overflow-hidden rounded-lg shadow-lg">
-                    <img
-                      src={image}
-                      alt={`Teaching Moment ${index + 1}`}
-                      className="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-300"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-                      <div className="absolute bottom-4 left-4 text-white">
-                        <p className="font-semibold">Teaching Session {index + 1}</p>
-                        <p className="text-sm">Interactive Learning Experience</p>
-                      </div>
-                    </div>
+ {/* Teaching in Action */}
+ <section id="teaching-action" className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <Camera className={`w-12 h-12 mx-auto mb-4 ${themeColors[colorTheme].text}`} />
+            <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-4">
+              Teaching in Action
+            </h2>
+            <p className="text-gray-600 dark:text-gray-400">
+              Capturing moments of learning and growth
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {images.map((image, index) => (
+                <div
+  key={index}
+  className="group relative overflow-hidden rounded-lg shadow-lg cursor-pointer transform hover:-translate-y-1 transition-all duration-300"
+  onClick={() => setSelectedImageIndex(index)}
+>
+  <img
+    src={image.src}
+    alt={image.title}
+    className="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-300"
+  />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                  <div className="absolute bottom-4 left-4 text-white">
+                    <p className="font-semibold">Teaching Session {index + 1}</p>
+                    <p className="text-sm">Interactive Learning Experience</p>
                   </div>
-                ))}
+                </div>
               </div>
-            </div>
-          </section>
+            ))}
+          </div>
+        </div>
+      </section>
 
-          {/* Video Highlights */}
-          <section id="video-highlights" className="py-16">
-            <div className="container mx-auto px-4">
-              <div className="text-center mb-12">
-                <PlayCircle className={`w-12 h-12 mx-auto mb-4 ${themeColors[colorTheme].text}`} />
-                <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-4">Video Highlights</h2>
-                <p className="text-gray-600 dark:text-gray-400">Watch my teaching methods in action</p>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {[1, 2].map((video) => (
-                  <div key={video} className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
-                    <div className="aspect-video bg-gray-200 dark:bg-gray-700">
-                      {/* Placeholder for video */}
-                      <div className="w-full h-full flex items-center justify-center">
-                        <PlayCircle className={`w-12 h-12 mx-auto mb-4 ${themeColors[colorTheme].text}`} />
-                      </div>
-                    </div>
-                    <div className="p-6">
-                      <h3 className="text-xl font-semibold mb-2 text-gray-800 dark:text-white">Teaching Session {video}</h3>
-                      <p className="text-gray-600 dark:text-gray-400">An in-depth look at interactive teaching methods and student engagement.</p>
+      {/* Video Highlights */}
+      <section id="video-highlights" className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <PlayCircle className={`w-12 h-12 mx-auto mb-4 ${themeColors[colorTheme].text}`} />
+            <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-4">
+              Video Highlights
+            </h2>
+            <p className="text-gray-600 dark:text-gray-400">
+              Watch my teaching methods in action
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {[1, 2].map((video) => (
+              <div
+                key={video}
+                className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden cursor-pointer transform hover:-translate-y-1 transition-all duration-300"
+                onClick={() => setSelectedVideo(video)}
+              >
+                <div className="aspect-video bg-gray-200 dark:bg-gray-700 relative group">
+                  <img
+                    src="/api/placeholder/640/360"
+                    alt={`Video thumbnail ${video}`}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-20 transition-opacity">
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <PlayCircle className={`w-12 h-12 text-white transform group-hover:scale-110 transition-transform`} />
                     </div>
                   </div>
-                ))}
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold mb-2 text-gray-800 dark:text-white">
+                    Teaching Session {video}
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-400">
+                    An in-depth look at interactive teaching methods and student engagement.
+                  </p>
+                </div>
               </div>
-            </div>
-          </section>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Modals */}
+      {selectedImageIndex !== null && (
+  <ImageModal
+    image={images[selectedImageIndex].src}
+    title={images[selectedImageIndex].title}
+    description={images[selectedImageIndex].description}
+    onClose={() => setSelectedImageIndex(null)}
+  />
+)}
+{selectedVideo && (
+  <VideoModal videoId={selectedVideo} onClose={() => setSelectedVideo(null)} />
+)}
 
           {/* Teaching Philosophy */}
           <section id="teaching-philosophy" className="py-16">
