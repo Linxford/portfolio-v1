@@ -133,12 +133,12 @@ const TeachingPortfolio = () => {
     // Update your images array to include titles and descriptions
     const images: ImageData[] = [
         {
-            src: "assets/linxford_prof.png",
+            src: "src/assets/linxford_prof.png",
             title: "Interactive Learning Session",
             description: "Students engaging in a hands-on experiment during our science class."
         },
         {
-            src: "assets/linxford_prof.png",
+            src: "src/assets/linxford_prof.png",
             title: "Group Discussion",
             description: "Facilitating a group discussion on current events in our social studies class."
         },
@@ -220,10 +220,11 @@ const TeachingPortfolio = () => {
                 <div className="container mx-auto px-4">
                     <div className="flex items-center justify-between h-16">
                         {/* Logo */}
-                        <div className="flex items-center space-x-3">
-                            <BookOpen className={`h-8 w-8 ${themeColors[colorTheme].text}`} />
-                            <span className="text-xl font-bold text-gray-800 dark:text-white">EduPortfolio</span>
-                        </div>
+                        <a href="/teaching">
+                            <div className="flex items-center space-x-3">
+                                <BookOpen className={`h-8 w-8 ${themeColors[colorTheme].text}`} />
+                                <span className="text-xl font-bold text-gray-800 dark:text-white">EduPortfolio</span>
+                            </div></a>
 
                         {/* Theme Selector */}
                         <div className="hidden md:flex space-x-2">
