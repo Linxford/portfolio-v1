@@ -133,12 +133,12 @@ const TeachingPortfolio = () => {
     // Update your images array to include titles and descriptions
     const images: ImageData[] = [
         {
-            src: "src/assets/linxford_prof.png",
+            src: "assets/linxford_prof.png",
             title: "Interactive Learning Session",
             description: "Students engaging in a hands-on experiment during our science class."
         },
         {
-            src: "src/assets/linxford_prof.png",
+            src: "assets/linxford_prof.png",
             title: "Group Discussion",
             description: "Facilitating a group discussion on current events in our social studies class."
         },
