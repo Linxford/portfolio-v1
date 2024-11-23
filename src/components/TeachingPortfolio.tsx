@@ -264,7 +264,7 @@ const themeColors: ThemeColors = {
           {/* Teaching in Action */}
           <section id="teaching-action" className="py-16">
             <div className="text-center mb-12">
-              <Camera className="w-12 h-12 text-blue-600 mx-auto mb-4" />
+              <Camera className={`w-12 h-12 mx-auto mb-4 ${themeColors[colorTheme].text}`} />
               <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-4">Teaching in Action</h2>
               <p className="text-gray-600 dark:text-gray-400">Capturing moments of learning and growth</p>
             </div>
@@ -290,7 +290,7 @@ const themeColors: ThemeColors = {
           {/* Video Highlights */}
           <section id="video-highlights" className="py-16">
             <div className="text-center mb-12">
-              <PlayCircle className="w-12 h-12 text-blue-600 mx-auto mb-4" />
+              <PlayCircle className={`w-12 h-12 mx-auto mb-4 ${themeColors[colorTheme].text}`} />
               <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-4">Video Highlights</h2>
               <p className="text-gray-600 dark:text-gray-400">Watch my teaching methods in action</p>
             </div>
@@ -300,7 +300,7 @@ const themeColors: ThemeColors = {
                   <div className="aspect-video bg-gray-200 dark:bg-gray-700">
                     {/* Placeholder for video */}
                     <div className="w-full h-full flex items-center justify-center">
-                      <PlayCircle className="w-16 h-16 text-gray-400" />
+                      <PlayCircle className={`w-12 h-12 mx-auto mb-4 ${themeColors[colorTheme].text}`} />
                     </div>
                   </div>
                   <div className="p-6">
@@ -316,7 +316,7 @@ const themeColors: ThemeColors = {
           <section id="teaching-philosophy" className="py-16">
             <div className="max-w-3xl mx-auto">
               <div className="text-center mb-12">
-                <BookOpen className="w-12 h-12 text-blue-600 mx-auto mb-4" />
+                <BookOpen className={`w-12 h-12 mx-auto mb-4 ${themeColors[colorTheme].text}`} />
                 <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-4">Teaching Philosophy</h2>
                 <p className="text-gray-600 dark:text-gray-400">My approach to education and learning</p>
               </div>
