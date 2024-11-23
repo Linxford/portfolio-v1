@@ -7,6 +7,10 @@
         {
             "source": "/admin/:path*",
             "destination": "/index.html"
+        },
+        {
+            "source": "/teaching*",
+            "destination": "/index.html"
         }
     ]
 }
