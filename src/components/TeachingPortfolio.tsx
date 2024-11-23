@@ -120,10 +120,10 @@ const themeColors: ThemeColors = {
     { id: 'contact', label: 'Contact', icon: Mail },
   ];
   const images = [
-    '/api/placeholder/400/300',
-    '/api/placeholder/400/300',
-    '/api/placeholder/400/300',
-    '/api/placeholder/400/300',
+    'src/assets/linxford_prof.png',
+    'src/assets/linxford_prof.png',
+    'src/assets/linxford_prof.png',
+    'src/assets/linxford_prof.png',
   ];
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
@@ -229,7 +229,7 @@ const themeColors: ThemeColors = {
               <div className="md:w-1/2 flex justify-center">
                 <div className="relative">
                   <img
-                    src="/api/placeholder/500/500"
+                    src="src/assets/linxford_prof.png"
                     alt="Teacher Profile"
                     className="rounded-full w-64 h-64 object-cover border-4 border-white shadow-lg transform hover:scale-105 transition-transform duration-300"
                   />
