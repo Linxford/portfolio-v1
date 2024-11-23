@@ -263,52 +263,56 @@ const themeColors: ThemeColors = {
         {/* <div className="container mx-auto px-4"> */}
           {/* Teaching in Action */}
           <section id="teaching-action" className="py-16">
-            <div className="text-center mb-12">
-              <Camera className={`w-12 h-12 mx-auto mb-4 ${themeColors[colorTheme].text}`} />
-              <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-4">Teaching in Action</h2>
-              <p className="text-gray-600 dark:text-gray-400">Capturing moments of learning and growth</p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {images.map((image, index) => (
-                <div key={index} className="group relative overflow-hidden rounded-lg shadow-lg">
-                  <img
-                    src={image}
-                    alt={`Teaching Moment ${index + 1}`}
-                    className="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-                    <div className="absolute bottom-4 left-4 text-white">
-                      <p className="font-semibold">Teaching Session {index + 1}</p>
-                      <p className="text-sm">Interactive Learning Experience</p>
+            <div className="container mx-auto px-4">
+              <div className="text-center mb-12">
+                <Camera className={`w-12 h-12 mx-auto mb-4 ${themeColors[colorTheme].text}`} />
+                <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-4">Teaching in Action</h2>
+                <p className="text-gray-600 dark:text-gray-400">Capturing moments of learning and growth</p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {images.map((image, index) => (
+                  <div key={index} className="group relative overflow-hidden rounded-lg shadow-lg">
+                    <img
+                      src={image}
+                      alt={`Teaching Moment ${index + 1}`}
+                      className="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+                      <div className="absolute bottom-4 left-4 text-white">
+                        <p className="font-semibold">Teaching Session {index + 1}</p>
+                        <p className="text-sm">Interactive Learning Experience</p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </section>
 
           {/* Video Highlights */}
           <section id="video-highlights" className="py-16">
-            <div className="text-center mb-12">
-              <PlayCircle className={`w-12 h-12 mx-auto mb-4 ${themeColors[colorTheme].text}`} />
-              <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-4">Video Highlights</h2>
-              <p className="text-gray-600 dark:text-gray-400">Watch my teaching methods in action</p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {[1, 2].map((video) => (
-                <div key={video} className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
-                  <div className="aspect-video bg-gray-200 dark:bg-gray-700">
-                    {/* Placeholder for video */}
-                    <div className="w-full h-full flex items-center justify-center">
-                      <PlayCircle className={`w-12 h-12 mx-auto mb-4 ${themeColors[colorTheme].text}`} />
+            <div className="container mx-auto px-4">
+              <div className="text-center mb-12">
+                <PlayCircle className={`w-12 h-12 mx-auto mb-4 ${themeColors[colorTheme].text}`} />
+                <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-4">Video Highlights</h2>
+                <p className="text-gray-600 dark:text-gray-400">Watch my teaching methods in action</p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {[1, 2].map((video) => (
+                  <div key={video} className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+                    <div className="aspect-video bg-gray-200 dark:bg-gray-700">
+                      {/* Placeholder for video */}
+                      <div className="w-full h-full flex items-center justify-center">
+                        <PlayCircle className={`w-12 h-12 mx-auto mb-4 ${themeColors[colorTheme].text}`} />
+                      </div>
+                    </div>
+                    <div className="p-6">
+                      <h3 className="text-xl font-semibold mb-2 text-gray-800 dark:text-white">Teaching Session {video}</h3>
+                      <p className="text-gray-600 dark:text-gray-400">An in-depth look at interactive teaching methods and student engagement.</p>
                     </div>
                   </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-semibold mb-2 text-gray-800 dark:text-white">Teaching Session {video}</h3>
-                    <p className="text-gray-600 dark:text-gray-400">An in-depth look at interactive teaching methods and student engagement.</p>
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </section>
 
@@ -457,8 +461,8 @@ const themeColors: ThemeColors = {
                       <Mail className={`w-6 h-6 ${themeColors[colorTheme].text}`} />
                       <div>
                         <h4 className="font-semibold text-gray-800 dark:text-white">Email</h4>
-                        <a href="mailto:contact@example.com" className="text-gray-600 dark:text-gray-400 hover:underline">
-                          contact@example.com
+                        <a href="mailto:linxford7@gmail.com" className="text-gray-600 dark:text-gray-400 hover:underline">
+                          linxford7@gmail.com
                         </a>
                       </div>
                     </div>
@@ -468,7 +472,7 @@ const themeColors: ThemeColors = {
                       <Linkedin className={`w-6 h-6 ${themeColors[colorTheme].text}`} />
                       <div>
                         <h4 className="font-semibold text-gray-800 dark:text-white">LinkedIn</h4>
-                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-400 hover:underline">
+                        <a href="https://linkedin.com/in/linxford" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-400 hover:underline">
                           View Profile
                         </a>
                       </div>
