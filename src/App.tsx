@@ -12,45 +12,45 @@ import { useThemeStore } from './store/themeStore';
 import { useAuthStore } from './store/authStore';
 import { APP_NAME, Developer, Developer_Contact, formatDate } from './utils/helpers';
 import { initGA, logPageView } from './utils/analytics';
-import TeachingPortfolio from './components/TeachingPortfolio';
+import TeachingPortfolio from './components/internship/TeachingPortfolio';
 
 
 function App() {
-  const { theme } = useThemeStore();
-  const checkAuth = useAuthStore((state) => state.checkAuth);
-  const location = useLocation();
+    const { theme } = useThemeStore();
+    const checkAuth = useAuthStore((state) => state.checkAuth);
+    const location = useLocation();
 
-  // Initialize GA
-  useEffect(() => {
-    initGA();
-    logPageView(location.pathname); // Log the initial page load
-  }, []);
+    // Initialize GA
+    useEffect(() => {
+        initGA();
+        logPageView(location.pathname); // Log the initial page load
+    }, []);
 
-  // Log page views on route changes
-  useEffect(() => {
-    logPageView(location.pathname);
-  }, [location]);
+    // Log page views on route changes
+    useEffect(() => {
+        logPageView(location.pathname);
+    }, [location]);
 
-  useEffect(() => {
-    checkAuth();
-  }, [checkAuth]);
+    useEffect(() => {
+        checkAuth();
+    }, [checkAuth]);
 
-  return (
-    <div className={theme === 'dark' ? 'dark' : ''}>
-      <Routes>
-  <Route path="/" element={<Portfolio />} />
-  <Route path="/teaching" element={<TeachingPortfolio />} /> {/* Move this before the admin routes */}
-  <Route path="/admin/login" element={<LoginPage />} />
-  <Route path="/admin" element={<AdminLayout />}>
-    <Route index element={<Dashboard />} />
-    <Route path="projects" element={<ProjectsManager />} />
-    <Route path="services" element={<ServicesManager />} />
-    <Route path="reviews" element={<ReviewsManager />} />
-    <Route path="content" element={<ContentManager />} />
-  </Route>
-</Routes>
-    </div>
-  );
+    return (
+        <div className={theme === 'dark' ? 'dark' : ''}>
+            <Routes>
+                <Route path="/" element={<Portfolio />} />
+                <Route path="/teaching" element={<TeachingPortfolio />} /> {/* Move this before the admin routes */}
+                <Route path="/admin/login" element={<LoginPage />} />
+                <Route path="/admin" element={<AdminLayout />}>
+                    <Route index element={<Dashboard />} />
+                    <Route path="projects" element={<ProjectsManager />} />
+                    <Route path="services" element={<ServicesManager />} />
+                    <Route path="reviews" element={<ReviewsManager />} />
+                    <Route path="content" element={<ContentManager />} />
+                </Route>
+            </Routes>
+        </div>
+    );
 }
 
 export default App;

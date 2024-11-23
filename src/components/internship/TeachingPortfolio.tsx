@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Mail, Linkedin, BookOpen, Award, Users, MessageSquare, Camera, PlayCircle, Star, Calendar, Clock, ArrowUp, Lightbulb, Book, Trophy, ChevronLeft, ChevronRight, Loader } from 'lucide-react';
+import { Menu, X, Mail, Linkedin, BookOpen, Award, Users, MessageSquare, Camera, PlayCircle, Star, Calendar, Clock, ArrowUp, Lightbulb, Book, Trophy, ChevronLeft, ChevronRight, Loader, Play, Video } from 'lucide-react';
+import { videoData } from './videoData';
+import VideoModal from './VideoModal';
 
 const TeachingPortfolio = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -7,7 +9,7 @@ const TeachingPortfolio = () => {
     const [showScrollTop, setShowScrollTop] = useState(false);
     const [selectedTestimonial, setSelectedTestimonial] = useState(0);
     const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
-    const [selectedVideo, setSelectedVideo] = useState<number | null>(null);
+    const [selectedVideoId, setSelectedVideoId] = useState<number | null>(null);
     // Color theme state
     type ThemeOption = 'emerald' | 'blue' | 'purple' | 'rose';
     type ThemeColors = Record<ThemeOption, {
@@ -210,103 +212,6 @@ const TeachingPortfolio = () => {
             </div>
         );
     };
-
-
-
-    interface VideoModalProps {
-        videoId: number | null;
-        onClose: () => void;
-    }
-
-    const VideoModal: React.FC<VideoModalProps> = ({ videoId, onClose }) => {
-        if (videoId === null) return null;
-        const [isVideoLoading, setIsVideoLoading] = useState(true);
-        const [isPlaying, setIsPlaying] = useState(false);
-
-        const handlePlayClick = () => {
-            setIsVideoLoading(true);
-            setTimeout(() => {
-                setIsVideoLoading(false);
-                setIsPlaying(true);
-            }, 1500); // Simulate video loading
-        };
-
-        // ... rest of the component code
-        useEffect(() => {
-            if (isPlaying) {
-                const timer = setTimeout(() => {
-                    setIsPlaying(false);
-                }, 5000); // Simulate video playing for 5 seconds
-                return () => clearTimeout(timer);
-            }
-        }, [isPlaying]);
-
-        return (
-            <div
-                className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4"
-                onClick={onClose}
-            >
-                <div
-                    className="relative max-w-4xl w-full animate-fadeIn"
-                    onClick={e => e.stopPropagation()}
-                >
-                    <button
-                        onClick={onClose}
-                        className="absolute -top-10 right-0 text-white hover:text-gray-300 transition-colors"
-                    >
-                        <X className="w-8 h-8" />
-                    </button>
-
-                    <div className="aspect-video bg-gray-900 rounded-lg overflow-hidden shadow-2xl">
-                        {isVideoLoading && (
-                            <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
-                                <Loader className="w-8 h-8 text-white animate-spin" />
-                            </div>
-                        )}
-
-                        {!isPlaying ? (
-                            <div
-                                className="w-full h-full relative cursor-pointer group"
-                                onClick={handlePlayClick}
-                            >
-                                {/* Video thumbnail */}
-                                <div className="absolute inset-0">
-                                    <img
-                                        src="/api/placeholder/640/360"
-                                        alt={`Video thumbnail ${videoId}`}
-                                        className="w-full h-full object-cover"
-                                    />
-                                    <div className="absolute inset-0 bg-black bg-opacity-40 group-hover:bg-opacity-30 transition-all duration-300" />
-                                </div>
-
-                                {/* Play button overlay */}
-                                <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
-                                    <PlayCircle className="w-16 h-16 mb-4 transform group-hover:scale-110 transition-transform" />
-                                    <h3 className="text-xl font-semibold">Teaching Session {videoId}</h3>
-                                    <p className="text-sm text-gray-300">Click to play</p>
-                                </div>
-                            </div>
-                        ) : (
-                            <div className="w-full h-full flex items-center justify-center bg-gray-800 text-white">
-                                <div className="text-center">
-                                    <p className="text-lg mb-2">Video {videoId} is playing</p>
-                                    <p className="text-sm text-gray-400">Video player implementation goes here</p>
-                                </div>
-                            </div>
-                        )}
-                    </div>
-
-                    {/* Video info */}
-                    <div className="mt-4 text-white">
-                        <h3 className="text-xl font-semibold mb-2">Teaching Session {videoId}</h3>
-                        <p className="text-gray-300">
-                            Duration: 15:30 • Posted 3 days ago
-                        </p>
-                    </div>
-                </div>
-            </div>
-        );
-    };
     return (
         <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
             {/* Header */}
@@ -477,43 +382,38 @@ const TeachingPortfolio = () => {
                     </div>
                 </section>
 
-                {/* Video Highlights */}
-                <section id="video-highlights" className="py-16">
-                    <div className="container mx-auto px-4">
-                        <div className="text-center mb-12">
-                            <PlayCircle className={`w-12 h-12 mx-auto mb-4 ${themeColors[colorTheme].text}`} />
-                            <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-4">
-                                Video Highlights
-                            </h2>
-                            <p className="text-gray-600 dark:text-gray-400">
-                                Watch my teaching methods in action
-                            </p>
-                        </div>
+                {/* Video Highlights Section */}
+                <section className="py-16 px-4 sm:px-6 lg:px-8">
+                    {/* <div className="container mx-auto px-4"> */}
+                    <div className="text-center mb-12">
+                        <Video className={`w-12 h-12 mx-auto mb-4 ${themeColors[colorTheme].text}`} />
+                        <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-4">
+                            Video Highlights
+                        </h2>
+                        <p className="text-gray-600 dark:text-gray-400">
+                            Capturing moments of learning and growth
+                        </p>
+                    </div>
+                    <div className="max-w-7xl mx-auto">
+                        {/* <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-8">Video Highlights</h2> */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                            {[1, 2].map((video) => (
+                            {videoData.map((video) => (
                                 <div
-                                    key={video}
+                                    key={video.id}
                                     className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden cursor-pointer transform hover:-translate-y-1 transition-all duration-300"
-                                    onClick={() => setSelectedVideo(video)}
+                                    onClick={() => setSelectedVideoId(video.id)}
                                 >
                                     <div className="aspect-video bg-gray-200 dark:bg-gray-700 relative group">
-                                        <img
-                                            src="/api/placeholder/640/360"
-                                            alt={`Video thumbnail ${video}`}
-                                            className="w-full h-full object-cover"
-                                        />
-                                        <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-20 transition-opacity">
-                                            <div className="absolute inset-0 flex items-center justify-center">
-                                                <PlayCircle className={`w-12 h-12 text-white transform group-hover:scale-110 transition-transform`} />
-                                            </div>
+                                        <div className="absolute inset-0 flex items-center justify-center">
+                                            <Play className="w-16 h-16 text-white opacity-70 group-hover:opacity-100 transition-opacity" />
                                         </div>
                                     </div>
                                     <div className="p-6">
                                         <h3 className="text-xl font-semibold mb-2 text-gray-800 dark:text-white">
-                                            Teaching Session {video}
+                                            {video.title}
                                         </h3>
                                         <p className="text-gray-600 dark:text-gray-400">
-                                            An in-depth look at interactive teaching methods and student engagement.
+                                            {video.description}
                                         </p>
                                     </div>
                                 </div>
@@ -531,8 +431,12 @@ const TeachingPortfolio = () => {
                         onClose={() => setSelectedImageIndex(null)}
                     />
                 )}
-                {selectedVideo && (
-                    <VideoModal videoId={selectedVideo} onClose={() => setSelectedVideo(null)} />
+                {/* Video Modal */}
+                {selectedVideoId && (
+                    <VideoModal
+                        videoId={selectedVideoId}
+                        onClose={() => setSelectedVideoId(null)}
+                    />
                 )}
 
                 {/* Teaching Philosophy */}

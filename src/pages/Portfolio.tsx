@@ -10,32 +10,32 @@ import Contact from '../components/Contact';
 import ParticlesBackground from '../components/ParticlesBackground';
 import Footer from '../components/Footer';
 import { useGithubStore } from '../store/githubStore';
-import TeachingPortfolio from '../components/TeachingPortfolio';
+import TeachingPortfolio from '../components/internship/TeachingPortfolio';
 
 export default function Portfolio() {
-  const fetchGithubData = useGithubStore((state) => state.fetchGithubData);
+    const fetchGithubData = useGithubStore((state) => state.fetchGithubData);
 
-  useEffect(() => {
-    fetchGithubData();
-  }, [fetchGithubData]);
+    useEffect(() => {
+        fetchGithubData();
+    }, [fetchGithubData]);
 
-  return (
-    <div className="relative bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors">
-      {/* Background Effects */}
-      <ParticlesBackground />
+    return (
+        <div className="relative bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors">
+            {/* Background Effects */}
+            <ParticlesBackground />
 
-      {/* Page Sections */}
-      <Navbar />
-      <Hero />
-      <Services />
-      <TechStack />
-      <Projects />
-      <Reviews />
-      <Skills />
-      <Contact />
-      <Footer />
-    </div>
-  );
+            {/* Page Sections */}
+            <Navbar />
+            <Hero />
+            <Services />
+            <TechStack />
+            <Projects />
+            <Reviews />
+            <Skills />
+            <Contact />
+            <Footer />
+        </div>
+    );
 }
 
 
