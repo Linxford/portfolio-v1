@@ -26,7 +26,6 @@ export default function Portfolio() {
 
       {/* Page Sections */}
       <Navbar />
-      <TeachingPortfolio />
       <Hero />
       <Services />
       <TechStack />
