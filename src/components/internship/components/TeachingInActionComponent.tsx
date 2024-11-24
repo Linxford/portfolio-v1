@@ -10,6 +10,7 @@ interface TeachingInActionComponentProps {
     setSelectedImageIndex: (index: number | null) => void;
     colorTheme: ThemeOption;
 }
+
 const TeachingInActionComponent: React.FC<TeachingInActionComponentProps> = ({ selectedImageIndex, setSelectedImageIndex, colorTheme }) => {
     return (
         <section id="teaching-action" className="py-16">
@@ -47,11 +48,8 @@ const TeachingInActionComponent: React.FC<TeachingInActionComponentProps> = ({ s
             </div>
             {selectedImageIndex !== null && (
                 <ImageModal
-                    image={images[selectedImageIndex].src}
-                    title={images[selectedImageIndex].title}
-                    description={images[selectedImageIndex].description}
-                    onClose={() => setSelectedImageIndex(null)}
                     initialIndex={selectedImageIndex}
+                    onClose={() => setSelectedImageIndex(null)}
                 />
             )}
         </section>

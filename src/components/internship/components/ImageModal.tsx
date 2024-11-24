@@ -4,25 +4,26 @@ import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { images } from './data/imageData';
 
 interface ImageModalProps {
-    image: string | null;
-    onClose: () => void;
     initialIndex: number;
-    title: string;
-    description: string;
+    onClose: () => void;
 }
 
-const ImageModal: React.FC<ImageModalProps> = ({ image, onClose, initialIndex, title, description }) => {
+const ImageModal: React.FC<ImageModalProps> = ({ initialIndex, onClose }) => {
     const [currentIndex, setCurrentIndex] = useState(initialIndex);
 
     // Helper function for image navigation
     const navigateImage = (direction: 'next' | 'prev') => {
-        if (setCurrentIndex === null) return;
+        if (currentIndex === null) return;
         const newIndex = direction === 'next'
             ? (currentIndex + 1) % images.length
             : (currentIndex - 1 + images.length) % images.length;
         setCurrentIndex(newIndex);
     };
-    if (!image) return null;
+
+    const currentImage = images[currentIndex];
+
+    if (!currentImage) return null;
+
     return (
         <div
             className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4"
@@ -42,14 +43,14 @@ const ImageModal: React.FC<ImageModalProps> = ({ image, onClose, initialIndex, t
                 <div className="flex flex-col md:flex-row">
                     <div className="md:w-2/3">
                         <img
-                            src={image}
-                            alt={title}
+                            src={currentImage.src}
+                            alt={currentImage.title}
                             className="w-full h-auto rounded-t-lg md:rounded-l-lg md:rounded-t-none"
                         />
                     </div>
                     <div className="p-6 md:w-1/3">
-                        <h2 className="text-2xl font-bold mb-4 text-gray-800 dark:text-white">{title}</h2>
-                        <p className="text-gray-600 dark:text-gray-300">{description}</p>
+                        <h2 className="text-2xl font-bold mb-4 text-gray-800 dark:text-white">{currentImage.title}</h2>
+                        <p className="text-gray-600 dark:text-gray-300">{currentImage.description}</p>
                     </div>
                 </div>
                 {/* Navigation buttons */}
@@ -68,7 +69,6 @@ const ImageModal: React.FC<ImageModalProps> = ({ image, onClose, initialIndex, t
             </div>
         </div>
     );
-
 };
 
 export default ImageModal;
