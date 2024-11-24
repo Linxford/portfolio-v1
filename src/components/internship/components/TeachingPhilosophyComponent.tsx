@@ -7,9 +7,7 @@ import { themeColors, ThemeOption } from './theme';
 interface TeachingPhilosophyComponentProps {
     colorTheme: ThemeOption;
 }
-const TeachingPhilosophyComponent:React.FC <TeachingPhilosophyComponentProps>= ({colorTheme}) => {
-    // const TimelineComponent: React.FC<TimelineComponentProps> = ({ colorTheme }) => {
-
+const TeachingPhilosophyComponent: React.FC<TeachingPhilosophyComponentProps> = ({ colorTheme }) => {
     return (
         <section id="teaching-philosophy" className="py-16">
             <div className="max-w-3xl mx-auto">
