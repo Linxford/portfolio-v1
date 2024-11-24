@@ -2,6 +2,7 @@
 import React from 'react';
 import { Award, BookOpen } from 'lucide-react';
 import { themeColors, ThemeOption } from '../components/theme';
+import profileImage from '/src/assets/images/linxford_prof.png';
 
 interface HeroSectionComponentProps {
     colorTheme: ThemeOption;
@@ -35,7 +36,7 @@ const HeroSectionComponent: React.FC<HeroSectionComponentProps> = ({ colorTheme 
                     <div className="md:w-1/2 flex justify-center">
                         <div className="relative">
                             <img
-                                src="/src/assets/images/linxford_prof.png"
+                                src={profileImage}
                                 alt="Teacher Profile"
                                 className="rounded-full w-64 h-64 object-cover border-4 border-white shadow-lg transform hover:scale-105 transition-transform duration-300"
                             />
