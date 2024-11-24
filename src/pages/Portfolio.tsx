@@ -1,14 +1,14 @@
 import { useEffect } from 'react';
-import Navbar from '../components/Navbar';
-import Hero from '../components/Hero';
-import Services from '../components/Services';
-import TechStack from '../components/TechStack';
-import Projects from '../components/Projects';
-import Reviews from '../components/Reviews';
-import Skills from '../components/Skills';
-import Contact from '../components/Contact';
-import ParticlesBackground from '../components/ParticlesBackground';
-import Footer from '../components/Footer';
+import Navbar from '../components/developer/Navbar';
+import Hero from '../components/developer/Hero';
+import Services from '../components/developer/Services';
+import TechStack from '../components/developer/TechStack';
+import Projects from '../components/developer/Projects';
+import Reviews from '../components/developer/Reviews';
+import Skills from '../components/developer/Skills';
+import Contact from '../components/developer/Contact';
+import ParticlesBackground from '../components/developer/ParticlesBackground';
+import Footer from '../components/developer/Footer';
 import { useGithubStore } from '../store/githubStore';
 import TeachingPortfolio from '../components/internship/TeachingPortfolio';
 

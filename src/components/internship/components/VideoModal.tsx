@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { X, Loader, Play } from 'lucide-react';
-import { videoData, } from './videoData';
+import { videoData, } from './data/videoData';
 
 interface VideoModalProps {
     videoId: number;
