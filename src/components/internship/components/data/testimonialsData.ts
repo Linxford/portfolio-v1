@@ -1,5 +1,3 @@
-// src/videoData.ts
-
 export interface TestimonialsData {
     text: string;
     rating: number;
@@ -33,6 +31,6 @@ export const testimonials: TestimonialsData[] = [
         role: "My Mentor",
         rating: 5,
     },
-    
+
 ];
 // Add more video objects as needed

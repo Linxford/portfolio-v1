@@ -23,10 +23,7 @@ const HeaderComponent: React.FC<HeaderComponentProps> = ({ isMenuOpen, setIsMenu
         { id: 'testimonials', label: 'Testimonials', icon: MessageSquare },
         { id: 'contact', label: 'Contact', icon: Mail },
     ];
-
-
-
-    return (
+     return (
         <header className="fixed top-0 w-full bg-white dark:bg-gray-800 shadow-lg z-50">
             <div className="container mx-auto px-4">
                 <div className="flex items-center justify-between h-16">

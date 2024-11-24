@@ -1,6 +1,9 @@
 // src/imageData.ts
 import profileImage from '/src/assets/images/linxford_prof.png';
-import img1 from '/src/assets/images/IMG-20241122-WA0009.jpg'
+import img1 from '/src/assets/images/IMG-20241122-WA0009.jpg';
+import img2 from '/src/assets/images/IMG-20241122-WA0011.jpg';
+import img3 from '/src/assets/images/IMG-20241122-WA0015.jpg';
+import img4 from '/src/assets/images/IMG-20241122-WA0019.jpg';
 
 interface ImageData {
     src: string;
@@ -17,18 +20,18 @@ export const images: ImageData[] = [
         alt: "TLRs being created"
     },
     {
-        src: profileImage,
+        src: img2,
         title: "Group Discussion",
         description: "Facilitating a group discussion on current events in our social studies class.",
         alt: ''
     }, {
-        src: profileImage,
+        src: img3,
         title: "Interactive Learning Session",
         description: "Students engaging in a hands-on experiment during our science class.",
         alt: ''
     },
     {
-        src: profileImage,
+        src: img4,
         title: "Group Discussion",
         description: "Facilitating a group discussion on current events in our social studies class.",
         alt: ''

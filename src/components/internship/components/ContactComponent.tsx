@@ -13,7 +13,7 @@ const ContactComponent: React.FC<ContactComponentProps> = ({ colorTheme }) => {
             <div className="container mx-auto px-4">
                 <div className="max-w-4xl mx-auto">
                     <div className="text-center mb-12">
-                        <Mail className={`w-6 h-6 ${themeColors[colorTheme].text}`} />
+                        {/* <Mail className={`w-6 h-6 ${themeColors[colorTheme].text}`} /> */}
                         <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-4">Let's Connect</h2>
                         <p className="text-gray-600 dark:text-gray-400">Reach out to discuss educational opportunities</p>
                     </div>

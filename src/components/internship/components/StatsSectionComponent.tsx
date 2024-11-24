@@ -1,6 +1,6 @@
 // src/components/StatsSectionComponent.jsx
 import React from 'react';
-import { Users, Book, Trophy, Star } from 'lucide-react';
+import { Users, Book, Trophy, Star, Code } from 'lucide-react';
 import { themeColors, ThemeOption } from '../components/theme';
 
 interface StatsSectionComponentProps {
@@ -13,6 +13,7 @@ const StatsSectionComponent: React.FC<StatsSectionComponentProps> = ({ colorThem
         { icon: Book, label: 'Courses Developed', value: '12' },
         { icon: Trophy, label: 'Awards Received', value: '5' },
         { icon: Star, label: 'Average Rating', value: '4.9/5' },
+        // {icon: Code, label: 'Coding ', value: '12'}
     ];
 
     return (
