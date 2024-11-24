@@ -70,7 +70,9 @@ export default function Reviews() {
                                         {review.name}
                                     </h3>
                                     <p className="text-sm text-gray-600 dark:text-gray-400">{review.role} 👉
-                                    <span className="text-sm text-gray-600 dark:text-gray-400"><a href={review.website} target="_blank" rel="noopener noreferrer">Visit Website</a></span> </p>
+                                        {review.website && (
+                                            <span className="text-sm text-gray-600 dark:text-gray-400"><a href={review.website} target="_blank" rel="noopener noreferrer">Visit Website</a></span>
+                                        )} </p>
                                 </div>
                             </div>
 
