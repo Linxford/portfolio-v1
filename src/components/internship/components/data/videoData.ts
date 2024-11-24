@@ -7,7 +7,7 @@ export interface VideoData {
     description: string;
     videoUrl: string;
 }
-
+ 
 export const videoData: VideoData[] = [
     {
         id: 1,

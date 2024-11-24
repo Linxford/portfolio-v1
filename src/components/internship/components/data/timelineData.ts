@@ -1,6 +1,4 @@
 // src/videoData.ts
-import videoSrc from '/src/assets/videos/fb1.mp4';
-
 export interface TimelineData {
     title: string;
     description: string;
