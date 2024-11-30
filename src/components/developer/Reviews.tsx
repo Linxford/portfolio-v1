@@ -72,7 +72,7 @@ export default function Reviews() {
                                     <p className="text-sm text-gray-600 dark:text-gray-400">{review.role} 👉
                                         {review.website && (
                                             <span className="text-sm text-gray-600 dark:text-gray-400"><a href={review.website} target="_blank" rel="noopener noreferrer">Visit Website</a></span>
-                                        )} </p>
+                                        )} </p> 
                                 </div>
                             </div>
 
