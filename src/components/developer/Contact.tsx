@@ -52,7 +52,7 @@ export default function Contact() {
                                     </div>
                                     <div>
                                         <h3 className="text-lg font-semibold mb-1">Email</h3>
-                                        <p className="text-gray-600 dark:text-gray-400">{content.email}</p>
+                                        <p className="text-gray-600 dark:text-gray-400">{content.email || "linxford7@gmail.com"}</p>
                                     </div>
                                 </div>
                             </div>
@@ -66,7 +66,7 @@ export default function Contact() {
                                     </div>
                                     <div>
                                         <h3 className="text-lg font-semibold mb-1">Location</h3>
-                                        <p className="text-gray-600 dark:text-gray-400">{content.location}</p>
+                                        <p className="text-gray-600 dark:text-gray-400">{content.location || "Accra Ghana"}</p>
                                     </div>
                                 </div>
                             </div>
@@ -80,7 +80,7 @@ export default function Contact() {
                                     </div>
                                     <div>
                                         <h3 className="text-lg font-semibold mb-1">Phone</h3>
-                                        <p className="text-gray-600 dark:text-gray-400">{content.phone}</p>
+                                        <p className="text-gray-600 dark:text-gray-400">{content.phone || "+233 249 771 777"}</p>
                                     </div>
                                 </div>
                             </div>
@@ -120,6 +120,7 @@ export default function Contact() {
                                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                                 className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
                                 required
+                                placeholder='enter your name here'
                             />
                         </div>
 
@@ -134,6 +135,7 @@ export default function Contact() {
                                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                                 className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
                                 required
+                                placeholder='enter email address'
                             />
                         </div>
 
@@ -148,6 +150,7 @@ export default function Contact() {
                                 rows={4}
                                 className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
                                 required
+                                placeholder='please enter your message here, let it be precise, and realistic'
                             ></textarea>
                         </div>
 

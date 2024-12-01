@@ -23,15 +23,14 @@ export default function Portfolio() {
         <div className="relative bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors">
             {/* Background Effects */}
             <ParticlesBackground />
-
             {/* Page Sections */}
             <Navbar />
             <Hero />
-            <Services />
             <TechStack />
-            <Projects />
-            <Reviews />
             <Skills />
+            <Projects />
+            <Services />
+            <Reviews />
             <Contact />
             <Footer />
         </div>

@@ -10,12 +10,13 @@ import { LinkedIn, WhatsApp, StackOverflow, Telegram, Github, Instagram } from '
 
 const Footer = () => {
     return (
-        <footer className="bg-gray-50 dark:bg-gray-800 py-8">
+
+        <footer id='footer' className="bg-gray-50 dark:bg-gray-800 py-8">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center text-gray-600 dark:text-gray-400">
                 {/* Left Section */}
                 <div className="text-sm">
-                    © {new Date().getFullYear()} Crafted with 🩵 by <a href={Github} className="hover:underline">Linxford Kwabena.
-                    </a> </div>
+                    © {new Date().getFullYear()} Crafted with 🩵 by <a href={Github} className="hover:underline">Linxford Kwabena.</a>
+                </div>
 
                 {/* Center Section */}
                 <div className="flex items-center my-4 md:my-0">
@@ -25,6 +26,7 @@ const Footer = () => {
                         alt="React"
                         className="w-5 h-5"
                     />
+
                 </div>
 
                 {/* Right Section */}

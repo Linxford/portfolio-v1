@@ -17,13 +17,13 @@ const services = [
       "Building scalable, high-performance apps with Flutter and React Native for both iOS and Android platforms.",
     color: "from-blue-500 to-cyan-500",
   },
-  {
-    icon: Palette,
-    title: "UI/UX Design",
-    description:
-      "Crafting stunning and user-centric interfaces that combine aesthetics with exceptional usability.",
-    color: "from-purple-500 to-pink-500",
-  },
+//   {
+//     icon: Palette,
+//     title: "UI/UX Design",
+//     description:
+//       "Crafting stunning and user-centric interfaces that combine aesthetics with exceptional usability.",
+//     color: "from-purple-500 to-pink-500",
+//   },
   {
     icon: Gauge,
     title: "Performance Optimization",
@@ -31,13 +31,13 @@ const services = [
       "Ensuring smooth and efficient app experiences with advanced optimization techniques.",
     color: "from-orange-500 to-yellow-500",
   },
-  {
-    icon: Shield,
-    title: "App Security",
-    description:
-      "Implementing top-notch security measures to safeguard applications and protect user data.",
-    color: "from-green-500 to-emerald-500",
-  },
+//   {
+//     icon: Shield,
+//     title: "App Security",
+//     description:
+//       "Implementing top-notch security measures to safeguard applications and protect user data.",
+//     color: "from-green-500 to-emerald-500",
+//   },
   {
     icon: Cloud,
     title: "Cloud Integration",

@@ -5,6 +5,7 @@ import {
 import { TypeAnimation } from 'react-type-animation';
 import { useGithubStore } from '../../store/githubStore';
 import { useContent } from '../../hooks/useContent';
+import MyResume from '../../assets/resume.pdf';
 
 export default function Hero() {
     const { profile } = useGithubStore();
@@ -26,11 +27,11 @@ export default function Hero() {
                     {/* Hero Text Section */}
                     <div className="space-y-8 animate-slide-up">
                         <div className="space-y-4">
-                            <h1 className="font-display text-4xl md:text-6xl font-bold leading-tight">
+                            <h1 className="font-display text-4xl md:text-5xl font-bold leading-tight">
                                 <span className="bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent animate-gradient">
                                     {content.title || 'Full-Stack Developer and AI Solution Architect'}
                                 </span>
-                                <div className="h-20">
+                                <div className="h-15">
                                     <TypeAnimation
                                         sequence={[
                                             content.subtitle || 'Building Beautiful Apps',
@@ -39,11 +40,13 @@ export default function Hero() {
                                             2000,
                                             'Crafting Mobile Experiences',
                                             2000,
+                                            'Crafting Modern Web Experiences',
+                                            2000,
                                         ]}
                                         wrapper="span"
                                         speed={50}
                                         repeat={Infinity}
-                                        className="block text-3xl md:text-5xl mt-2"
+                                        className="block text-2xl md:text-2xl mt-2"
                                     />
                                 </div>
                             </h1>
@@ -62,7 +65,7 @@ export default function Hero() {
                                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
                             </a>
                             <a
-                                href="/resume.pdf"
+                                href={MyResume}
                                 download
                                 className="inline-flex items-center px-6 py-3 border-2 border-blue-500 text-blue-500 dark:text-blue-400 rounded-full hover:bg-blue-50 dark:hover:bg-blue-900/30 transition-all duration-300 transform hover:scale-105"
                             >
