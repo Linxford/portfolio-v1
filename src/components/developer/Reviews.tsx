@@ -27,7 +27,7 @@ const reviews = [
         // website: "https://tradersodd.com"
     },
     {
-        name: "Isaac Donkor (Amat)",
+        name: "Isaac Donkor (CashBill)",
         role: "CEO at TradersOdd",
         image: "https://ugc.production.linktr.ee/01dffcae-9117-49da-8321-a09a4b50d3f5_bvnbn.jpeg?io=true&size=avatar-v3_0",
         content: "The developer's attention to detail and commitment to quality are evident in every aspect of the project.",
@@ -72,7 +72,7 @@ export default function Reviews() {
                                     <p className="text-sm text-gray-600 dark:text-gray-400">{review.role} 👉
                                         {review.website && (
                                             <span className="text-sm text-gray-600 dark:text-gray-400"><a href={review.website} target="_blank" rel="noopener noreferrer">Visit Website</a></span>
-                                        )} </p> 
+                                        )} </p>
                                 </div>
                             </div>
 

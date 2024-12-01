@@ -11,6 +11,7 @@ import ParticlesBackground from '../components/developer/ParticlesBackground';
 import Footer from '../components/developer/Footer';
 import { useGithubStore } from '../store/githubStore';
 import TeachingPortfolio from '../components/internship/TeachingPortfolio';
+import AboutMe from '../components/developer/AboutMe';
 
 export default function Portfolio() {
     const fetchGithubData = useGithubStore((state) => state.fetchGithubData);
@@ -26,6 +27,7 @@ export default function Portfolio() {
             {/* Page Sections */}
             <Navbar />
             <Hero />
+            {/* <AboutMe /> */}
             <TechStack />
             <Skills />
             <Projects />

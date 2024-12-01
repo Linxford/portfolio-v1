@@ -27,9 +27,9 @@ export default function Navbar() {
 
                     <div className="hidden md:block font-bold uppercase">
                         <div className="ml-10 flex items-center space-x-8">
-                        {/* <ThemeToggle /> */}
+                            {/* <ThemeToggle /> */}
                             <a href="#home" className="hover:text-blue-500 transition-colors">Home</a>
-                            <a href="#techstack" className="hover:text-blue-500 transition-colors">About Me</a>
+                            <a href="#about" className="hover:text-blue-500 transition-colors">About Me</a>
                             <a href="#projects" className="hover:text-blue-500 transition-colors">Projects</a>
                             {/* <a href="#home" className="hover:text-blue-500 transition-colors">Home</a> */}
                             <a href="#skills" className="hover:text-blue-500 transition-colors">Skills</a>
