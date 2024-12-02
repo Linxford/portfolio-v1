@@ -13,6 +13,7 @@ import { useAuthStore } from './store/authStore';
 import { APP_NAME, Developer, Developer_Contact, formatDate } from './utils/helpers';
 import { initGA, logPageView } from './utils/analytics';
 import TeachingPortfolio from './components/internship/TeachingPortfolio';
+import React from 'react';
 
 
 function App() {
@@ -34,6 +35,14 @@ function App() {
     useEffect(() => {
         checkAuth();
     }, [checkAuth]);
+
+    // Reactively apply theme changes
+    React.useEffect(() => {
+        const root = document.documentElement;
+        const isDark = theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        if (isDark) root.classList.add('dark');
+        else root.classList.remove('dark');
+    }, [theme]);
 
     return (
         <div className={theme === 'dark' ? 'dark' : ''}>

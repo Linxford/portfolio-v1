@@ -6,7 +6,7 @@
   html {
     scroll-behavior: smooth;
   }
-  
+
   body {
     @apply antialiased text-gray-800 dark:text-gray-200;
   }
@@ -22,7 +22,7 @@
     transform: translateY(20px);
     animation: fadeIn 0.6s ease-out forwards;
   }
-  
+
   .nav-link {
     @apply relative hover:text-blue-500 transition-colors;
   }
@@ -51,4 +51,19 @@
 
 ::-webkit-scrollbar-thumb:hover {
   @apply bg-gray-400 dark:bg-gray-500;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fade-in 0.2s ease-out;
 }
