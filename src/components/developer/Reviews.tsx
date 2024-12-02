@@ -69,9 +69,9 @@ export default function Reviews() {
                                     <h3 className="font-semibold text-lg text-gray-800 dark:text-gray-200">
                                         {review.name}
                                     </h3>
-                                    <p className="text-sm text-gray-600 dark:text-gray-400">{review.role} 👉
+                                    <p className="text-sm text-gray-600 dark:text-gray-400">{review.role}
                                         {review.website && (
-                                            <span className="text-sm text-gray-600 dark:text-gray-400"><a href={review.website} target="_blank" rel="noopener noreferrer">Visit Website</a></span>
+                                            <span className="text-sm text-gray-600 dark:text-gray-400"><a href={review.website} target="_blank" rel="noopener noreferrer"> 👉 Visit Website</a></span>
                                         )} </p>
                                 </div>
                             </div>

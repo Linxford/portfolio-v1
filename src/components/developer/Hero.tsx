@@ -12,7 +12,7 @@ export default function Hero() {
     const content = useContent('hero');
 
     const stats = content.stats || [
-        { label: 'Apps Developed', value: '20+' },
+        { label: 'Apps Developed', value: '6+' },
         { label: 'Clean Architecture', value: 'Yes' },
         { label: 'UI/UX Focused', value: 'Yes' },
     ];
@@ -51,7 +51,8 @@ export default function Hero() {
                                 </div>
                             </h1>
                             <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl font-light">
-                                {content.description || profile?.bio || 'Crafting exceptional mobile experiences with Flutter.'}
+                                {content.description || profile?.bio || 'Crafting exceptional mobile and web experiences with Flutter. Specialized in developing innovative, responsive, and feature-rich applications that solve real-world problems. With expertise in SaaS platforms, AI-driven solutions, and localized apps tailored to diverse markets, I deliver user-friendly and impactful products globally.'}
+
                             </p>
                         </div>
 
