@@ -10,14 +10,14 @@ const reviews = [
         rating: 5,
         //  website: "https://tradersodd.com"
     },
-    {
-        name: "Michael Chen",
-        role: "Product Manager",
-        image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=150",
-        content: "Exceptional attention to detail and great communication throughout the project. Delivered a polished app right on schedule.",
-        rating: 5,
-        // website: "https://tradersodd.com"
-    },
+    // {
+    //     name: "Michael Chen",
+    //     role: "Product Manager",
+    //     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=150",
+    //     content: "Exceptional attention to detail and great communication throughout the project. Delivered a polished app right on schedule.",
+    //     rating: 5,
+    //     // website: "https://tradersodd.com"
+    // },
     {
         name: "Emily Rodriguez",
         role: "Startup Founder",
