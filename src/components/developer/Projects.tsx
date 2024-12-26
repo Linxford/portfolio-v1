@@ -28,7 +28,7 @@ export default function Projects() {
     }, [repos]);
 
     // Limit the number of repositories to show
-    const featuredRepos = filteredRepos.slice(0, 6);
+    const featuredRepos = filteredRepos.slice(0, 12);
 
     return (
         <section id="projects" className="py-20 bg-white dark:bg-gray-900 relative">
